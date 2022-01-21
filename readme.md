@@ -8,7 +8,7 @@ Farm to Front Door is a food delivery web app built in Python with Flask, SQLAlc
 - Installation
 - About Me
 
-## Tech Stack
+## Tech Stack Eric added a comment here.
 
 Backend: Python, Flask, PostgreSQL, SQLAlchemy
 
