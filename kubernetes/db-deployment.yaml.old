@@ -8,10 +8,7 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
+    type: Recreate
   minReadySeconds: 20
   selector:
     matchLabels:
@@ -19,13 +16,13 @@ spec:
   template:
     metadata:
       labels:
-        app: db 
+        app: db
     spec:
       containers:
-      - name: db-deployment 
+      - envFrom:
+        - secretRef:
+            name: db-secret
+        name: db-deployment
         image: harbor.dev.afsmtddso.com/espeer-harbor-project/db:971c881-de26171
         ports:
         - containerPort: 5432
-        envFrom:
-        - secretRef:
-            name: db-secret
